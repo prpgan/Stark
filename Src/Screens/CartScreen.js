@@ -15,6 +15,8 @@ import {
   AsyncStorage,
 } from 'react-native';
 import {connect} from 'react-redux';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 import {Card, CardItem, Body, Toast} from 'native-base';
 const height =  Dimensions.get('screen').height
 var total = null;
@@ -173,7 +175,8 @@ class CartScreen extends Component {
           </Card>
         ) : // </View>
           <View style={{ marginTop: height/3,justifyContent:'center',alignItems:'center'}}>
-          <Text style={{color:'red',textAlign:'center'}} >Cart is Empty !</Text>
+          {/* <Text style={{color:'red',textAlign:'center'}} >Cart is Empty !</Text> */}
+          <Icon color = "grey" name="ios-cart" size={150} />
           </View>
         }
 

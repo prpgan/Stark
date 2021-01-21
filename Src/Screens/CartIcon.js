@@ -7,7 +7,7 @@ import {
 } from "react-native";
 
 import { connect } from 'react-redux'
-import Icon from 'react-native-vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/Ionicons';
 let demo = [];
 const CartIcon = (props) => (
     <View style={[{ padding: 5 }, Platform.OS == 'android' ? styles.iconContainer : null]}>
