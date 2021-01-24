@@ -1,19 +1,22 @@
 import React from 'react'
 import { View, Text,TouchableOpacity } from 'react-native'
 
-export default function CustomButton({onPress,buttonText}) {
+export default function CustomButton({onPress,buttonText,backgroundColor,textColor}) {
     return (
         <View style={{flex:1}}>
         <TouchableOpacity
-        onPress={()=>onPress} 
+        onPress={onPress} 
         style={{
-            height:35,backgroundColor:'skyblue',
+            height:40,
+            backgroundColor:backgroundColor?backgroundColor:'skyblue',
             justifyContent:'center',
             alignItems:'center',
             borderRadius:50,
-            marginHorizontal:25
+            // marginHorizontal:25,
+            borderColor:'grey',
+            borderWidth:1
         }}>
-            <Text style={{color:"white"}}>{buttonText?buttonText:"Submit"}</Text>
+            <Text style={{color:textColor?textColor:"white", fontSize:18}}>{buttonText?buttonText:"Submit"}</Text>
         </TouchableOpacity>
         </View>
     )

@@ -3,19 +3,21 @@ import {View,Text,TextInput,StyleSheet,TouchableOpacity, Alert} from 'react-nati
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import SimpleReactValidator from 'simple-react-validator';
-
+import CustomAlert from '../Component/CustomAlert';
 export default class DesignForStark extends Component {
     constructor(){
         super();
         this.validator = new SimpleReactValidator();
         this.state={
-            email :''
+            email :'', 
+            modelVisible: false
         }
     }
 
     submitForm() {
         if (this.validator.allValid()) {
-          alert('You submitted the form and stuff!');
+          alert('You submitted the form and stuff!')
+          this.setState({modelVisible:!this.state.modelVisible})
         } else {
           this.validator.showMessages();
           // rerender to show messages for the first time
@@ -54,6 +56,7 @@ export default class DesignForStark extends Component {
             <View>
                 <TouchableOpacity onPress={()=>this.submitForm()}><Text>Submit</Text></TouchableOpacity>
             </View>
+            {this.state.modelVisible?<CustomAlert /> : null}
             </View>
         )
     }

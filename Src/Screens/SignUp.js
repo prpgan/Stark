@@ -23,11 +23,12 @@
 
 
 import React, { Component } from 'react';
-import { AsyncStorage, View,ScrollView, Text,Image,TextInput, StyleSheet, TouchableOpacity, ToastAndroid, StatusBar, ImageBackground } from 'react-native';
+import { AsyncStorage, View,ScrollView, Text,Image,TextInput, StyleSheet, TouchableOpacity, ToastAndroid, StatusBar, ImageBackground, TextInputComponent } from 'react-native';
 import { Item, Input, Label } from 'native-base';
 import Image_01 from '../assets/Image_01.png';
 import { color } from 'react-native-reanimated';
 import CustomButton from '../Component/CustomButton'
+import CustomTextInput from '../Component/CustomTextInput';
 
 export default class Login extends Component {
     constructor(props) {
@@ -93,48 +94,16 @@ export default class Login extends Component {
 
     render() {
         return (
-    //             <ScrollView style={{position: 'absolute',
-    // paddingTop: 60,
-    // marginTop: 0 ,
-    // flex:1,backgroundColor:'green',width:"100%",
-    // height: 10
-    // }}>
+            // <ScrollView>
             <View style={styles.container}>
                 <View style={styles.bgImage}>
                     <ImageBackground style={styles.bgImage} source={Image_01}  >
                     </ImageBackground>
                 </View>
-                {/* <ScrollView style={{position:'absolute',flex:1,width:"100%",height:100}}> */}
                 <View style={styles.bodyContainer}>
+                <CustomTextInput placeholder ="Full Name Here"/>
                     <View style={styles.form}>
-                    <Text>Full Name</Text>
-                        <View style={styles.formItem}>
-                            <View>
-                                <Image />
-                                <TextInput 
-                                placeholder="Full Name here"
-                                />
-                            </View>
-                        </View>
-                        <Text>Full Name</Text>
-                        <View style={styles.formItem}>
-                            <View>
-                                <Image />
-                                <TextInput 
-                                placeholder="Full Name here"
-                                />
-                            </View>
-                        </View>
-                        <Text>Full Name</Text>
-                        <View style={styles.formItem}>
-                            <View>
-                                <Image />
-                                <TextInput 
-                                placeholder="Full Name here"
-                                />
-                            </View>
-                        </View>
-                        <Text>Milk</Text>
+                         <Text>Milk</Text>
                         <View style={{flexDirection:'row'}}>
                         <Text>Cow</Text> 
                         <Text>Buffalo</Text> 
@@ -148,16 +117,8 @@ export default class Login extends Component {
                         </View>
                         <View>
                             <CustomButton 
-                            onPress={()=>alert("Pressed")}
-                            // buttonText="Bye"
+                            onPress={alert("Pressed")}
                             />
-                        {/* <TouchableOpacity
-                        onPress={()=>alert("Pressed")} 
-                        style={{
-                            height:35,backgroundColor:'skyblue',justifyContent:'center',alignItems:'center',borderRadius:50,marginHorizontal:25
-                        }}>
-                            <Text style={{color:""}}>Submit</Text>
-                        </TouchableOpacity> */}
                         </View>
                     </View>
                 </View>
@@ -170,18 +131,20 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        position:'relative'
+        position:'relative',
+        height:"100%"
     },
     bgImage: {
-        flex: 1,
+        flex: 7,
         width: "100%",
     },
     bodyContainer: {
-        // paddingTop: 50,
+        flex:2,
+        paddingTop: 50,
         padding: 20,
         marginTop: -20,
-        flex: 1,
-        backgroundColor: '#fff',
+
+        backgroundColor: 'red',
         borderTopRightRadius: 20,
         borderTopLeftRadius: 20,
     },
@@ -201,7 +164,7 @@ const styles = StyleSheet.create({
         color: 'lightgrey'
     },
     form: {
-        marginTop: 15
+        marginTop: 15, backgroundColor:'green'
     },
     formItem: {
         marginBottom:10, borderColor:'black',borderWidth:1
