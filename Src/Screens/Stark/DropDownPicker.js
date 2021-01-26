@@ -12,7 +12,7 @@ const DropDownPickerComp = () => {
         {label: 'Item 2', value: 'item2', selected: true, disabled: true},
     ]);
     return (
-        <View style={{flex:1}}>
+        <View style={{flex:1,marginTop:'10%'}}>
             {/* <View> */}
             <DropDownPicker
             searchable={true}
@@ -26,12 +26,12 @@ const DropDownPickerComp = () => {
                 {label: 'France', value: 'france', icon: () => <Icon name="flag" size={18} color="#900" />},
             ]}
     defaultValue={country}
-    containerStyle={{height: 40}}
+    containerStyle={{height: 50}}
     style={{backgroundColor: '#fafafa'}}
     itemStyle={{
         justifyContent: 'flex-start'
     }}
-    dropDownStyle={{backgroundColor: '#fff'}}
+    dropDownStyle={{backgroundColor: 'red',height:500,}}
     onChangeItem={item => 
         // alert(item) 
         setValue({

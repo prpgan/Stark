@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, Text,TouchableOpacity } from 'react-native'
 
-export default function CustomButton({onPress,buttonText,backgroundColor,textColor}) {
+export default function CustomButton({buttonwidth,onPress,buttonText,backgroundColor,textColor}) {
     return (
-        <View style={{flex:1}}>
+        <View style={{width:buttonwidth?buttonwidth:"40%"}}>
         <TouchableOpacity
         onPress={onPress} 
         style={{

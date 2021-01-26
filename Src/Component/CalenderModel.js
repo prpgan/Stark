@@ -5,12 +5,13 @@ import {  Alert,Image,
     Text,
     TouchableHighlight,
     View } from 'react-native'
-import CustomButton from '../Component/CustomButton';
-const CustomAlert = () => {
+import CustomButton from './CustomButton';
+import CalenderComp from '../Component/CalenderComp';
+const CustomAlertModel = () => {
     const [modalVisible, setModalVisible] = useState(true);
     return (
         <View style={{backgroundColor:'green',flex:1}}>
-            <Modal
+        <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
@@ -20,26 +21,17 @@ const CustomAlert = () => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-          {/* <View style={{position:'absolute'}}>
-                <Image style={{width:20,height:20,backgroundColor:'red'}} 
-                source={require('../assets/Image_01.png')}
-                />
-            </View> */}
-            <Text style={{fontSize:23,alignSelf:'center'}}>Confirm</Text>
-            <View style={{marginVertical:'3%',alignItems:'center'}}>
-            <Image style={{width:70,height:70}} source={require('../assets/Image_01.png')}/>
-            </View>
+              {/* <Text>Calender</Text> */}
+            <View style={{marginHorizontal:'5%'}}>
+            <CalenderComp />
             <View style={{alignItems:'center'}}>
-            <Text>Are you sure You want to save</Text>
-            </View>
-            <View style={{flexDirection:'row',marginVertical:'5%'}}>
-            <CustomButton onPress={()=>setModalVisible(!modalVisible)}/>
             <CustomButton 
-            buttonText="No" 
-            backgroundColor= "#fff" 
-            textColor="grey" 
+            buttonwidth="50%"
+            buttonText="Apply Date"  
+            // textColor="grey" 
             onPress={()=>setModalVisible(!modalVisible)}
             />
+            </View>
             </View>
           </View>
         </View>
@@ -48,7 +40,7 @@ const CustomAlert = () => {
     )
 }
 
-export default CustomAlert
+export default CustomAlertModel
 
 const styles = StyleSheet.create({
     centeredView: {
@@ -59,9 +51,8 @@ const styles = StyleSheet.create({
       },
       modalView: {
         backgroundColor: "#fff",
-        borderRadius: 30,
-        // marginTop: "40%",
-        // alignItems: "center",
+        borderTopRightRadius: 30,
+        borderTopLeftRadius: 30,
         shadowColor: "#000",
         shadowOffset: {
           width: 0,
@@ -69,7 +60,10 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-        elevation: 5
+        elevation: 5,
+        height:'60%',
+        justifyContent:'center',
+        // alignItems:'center'
       },
       openButton: {
         backgroundColor: "#F194FF",

@@ -3,11 +3,11 @@ import { View, Text, Image, StyleSheet,TextInput } from 'react-native';
 // const imageSrc = ""
 import Feather from 'react-native-vector-icons/Feather';
 
-export default function CustomTextInput({ upperText, imageSrc,editable, placeholder, term, onChangeTerm, onTermSbumitted }) {
+export default function CustomTextInput({ onBlur,upperText, imageSrc,editable, placeholder, term, onChangeTerm, onTermSbumitted, keyboardType }) {
     return (
         <View>
             <View style={{marginBottom:"2%"}}>
-                <Text>Full Name</Text>
+            {upperText?<Text>{upperText}</Text>:null}
             </View>
             <View style={Styles.formItem}>
                 <View style={Styles.imageViewStyles} >
@@ -25,10 +25,12 @@ export default function CustomTextInput({ upperText, imageSrc,editable, placehol
                         value={term}
                         editable = {editable == "false"?false:true}
                         // style={{width:'100%'}}
-                        // onChangeText={(newChange) => onChangeTerm(newChange)}
+                        onChangeText={(newChange) => onChangeTerm(newChange)}
                         placeholder={placeholder}
                         placeholderTextColor='grey'
                         onSubmitEditing={(submiterm) => onTermSbumitted(submiterm)}
+                        onBlur = {onBlur}
+                        keyboardType = {keyboardType}
                     />
                 </View>
                 {/* <View style={Styles.formItem1}>
