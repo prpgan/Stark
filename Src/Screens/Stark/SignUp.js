@@ -76,15 +76,15 @@ const SignUpForStark = () => {
           <Text>Milk</Text>
           <View style={{ flexDirection: 'row',justifyContent:'space-between',marginTop:'3%' }}>
           <View style={styles.CheckBoxViewStyle}>
-          <CheckBox style={styles.CheckBoxStyle} checked={true} />
+          <View style={{paddingRight:'10%'}}><CheckBox style={styles.CheckBoxStyle} checked={true} /></View>
             <Text>Cow</Text>
           </View> 
           <View style={styles.CheckBoxViewStyle}>
-          <CheckBox style={styles.CheckBoxStyle} checked={true} />
+          <View style={{paddingRight:'10%'}}><CheckBox style={styles.CheckBoxStyle} checked={true} /></View>
             <Text>Buffalo</Text>
           </View>  
           <View style={styles.CheckBoxViewStyle}>
-          <CheckBox style={styles.CheckBoxStyle} checked={true} />
+          <View style={{paddingRight:'10%'}}><CheckBox style={styles.CheckBoxStyle} checked={true} /></View>
             <Text>Desi Cow</Text>
           </View>   
           </View>
@@ -190,7 +190,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   }, CheckBoxViewStyle:{
-    flexDirection:'row',justifyContent:'space-between'
+    flexDirection:'row',
+    // justifyContent:'space-between'
   }, CheckBoxStyle:{
     alignSelf:'flex-start',marginLeft:'5%'
   }

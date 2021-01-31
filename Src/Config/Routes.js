@@ -114,6 +114,10 @@ import TableComp from '../Component/TableComp';
 import Searchbar from '../Component/SearchBar';
 import TermsAndPrivacy from '../Screens/Stark/TermsAndPrivacy';
 import Filter from "../Screens/Stark/Filter";
+import DatePickerExample from '../Component/DatePickerExample';
+
+
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -191,13 +195,15 @@ function Routes(){
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Login" component={Login} options={{headerShown:false}} />
+      <Stack.Screen name="SignUpForStark" component={SignUpForStark} options={{headerShown:false}} />
+      <Stack.Screen name="DatePicker" component={DatePickerExample} options={{headerShown:false}} />
       <Stack.Screen name="Personal" component={PersonalInfo} options={{headerShown:false}} />
       <Stack.Screen name="TermsAndPrivacy" component={TermsAndPrivacy} options={{headerShown:false}} />
       <Stack.Screen name="FilterAlert" component={Filter} options={{headerShown:false}} />
        <Stack.Screen name="Alert" component={CustomAlert} options={{headerShown:false}} />
       <Stack.Screen name="screen1" component={Searchbar} options={{headerShown:false}} />
       <Stack.Screen name="screen2" component={Screen2} options={{headerShown:false}} />
-        <Stack.Screen name="Login" component={Login} options={{headerShown:false}} />
         <Stack.Screen name="TabScreens" component={TabScreens}  />
         <Stack.Screen name="TabScreens2" component={TabScreens2}  />
       </Stack.Navigator>
