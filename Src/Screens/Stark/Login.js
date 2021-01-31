@@ -8,11 +8,11 @@ import Icon from 'react-native-vector-icons/Feather';
 import SimpleReactValidator from 'simple-react-validator';
 
 
-const onFormsubmit = ()=>{
-
+const onFormsubmit = (props)=>{
+    props.navigation.navigate('TabScreens')   
 }
 
-const Login = () => {
+const Login = (props) => {
     const simpleValidator = useRef(new SimpleReactValidator())
     const [value, setValue] = useState(null);
     const [country, setCountry] = useState('uk');
@@ -41,7 +41,7 @@ const Login = () => {
       {<Text style={{color:'red'}}>{simpleValidator.current.message('Mobile',value, 'required|phone')}</Text>}
       <View style={{flexDirection:'row',marginHorizontal:'15%',marginVertical:'10%'}}>
       <Text>Don't Have Account?</Text>
-      <TouchableOpacity onPress={()=>onFormsubmit()}>
+      <TouchableOpacity onPress={()=> props.navigation.navigate('TabScreens')  }>
           <Text style={{color:'skyblue'}}>Register</Text>
       </TouchableOpacity>
       </View>

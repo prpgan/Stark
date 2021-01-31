@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet,TextInput } from 'react-native';
 // const imageSrc = ""
 import Feather from 'react-native-vector-icons/Feather';
 
-export default function CustomTextInput({ onBlur,upperText, imageSrc,editable, placeholder, term, onChangeTerm, onTermSbumitted, keyboardType }) {
+export default function CustomTextInput({ iconName,onBlur,upperText, imageSrc,editable, placeholder, term, onChangeTerm, onTermSbumitted, keyboardType }) {
     return (
         <View>
             <View style={{marginBottom:"2%"}}>
@@ -13,7 +13,7 @@ export default function CustomTextInput({ onBlur,upperText, imageSrc,editable, p
                 <View style={Styles.imageViewStyles} >
                     {/* <Image source={require(`'${imageSrc}'`)} /> */}
                     <Feather
-                        name="lock"
+                        name={iconName?iconName:"lock"}
                         color="#05375a"
                         size={20}
                     />

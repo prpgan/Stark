@@ -10,15 +10,18 @@ import configureStore from './Src/Store/ConfigureStore';
 import {Root} from 'native-base';
 import SignUp from './Src/Screens/SignUp';
 console.disableYellowBox = true;
+import { MenuProvider } from 'react-native-popup-menu';
 
 
 const store = configureStore();
 function App() {
   return (
       <Root>
+      <MenuProvider>  
       <Provider store={store}>
           <Routes />
       </Provider>
+      </MenuProvider>
       </Root>
   );
 }

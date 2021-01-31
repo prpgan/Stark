@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React, { useState, useCallback } from 'react';
 
 import {
@@ -31,15 +23,18 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import { Picker,Card,Body ,CardItem} from "native-base"
+import { color } from 'react-native-reanimated';
 
 const {width, height} = Dimensions.get('window');
+
 const App = () => {
   const [date, setDate] = useState(new Date());
   const [show, setShow] = useState(false);
-
+  const data =[1,2,3,3,4,5]
+  const month =[{label:"Jan",value:"Jan"},{label:"Feb",value:"Feb"},{label:"Mar",value:"Mar"},{label:"April",value:"April"},{label:"May",value:"May"},{label:"Jun",value:"Jun"},{label:"July",value:"July"},{label:"Aug",value:"Aug"},{label:"Sept",value:"Sept"},{label:"Oct",value:"oct"},{label:"Nov",value:"Nov"},{label:"Dec",value:"dec"},{label:"Dec",value:"dec"},{label:"Dec",value:"dec"},{label:"Dec",value:"dec"},{label:"Dec",value:"dec"},{label:"Dec",value:"dec"},{label:"Dec",value:"dec"},{label:"Dec",value:"dec"},{label:"Dec",value:"dec"},{label:"Dec",value:"dec"},{label:"Dec",value:"dec"},{label:"Dec",value:"dec"},{label:"Dec",value:"dec"},{label:"Dec",value:"dec"},{label:"Dec",value:"dec"},{label:"Dec",value:"dec"}]
   return (
     <>
-      <StatusBar barStyle="dark-content" backgroundColor="red" />
+      <StatusBar barStyle="dark-content" backgroundColor="skyblue" />
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
@@ -47,37 +42,39 @@ const App = () => {
           <View style={styles.container}>
             <View style={styles.header}>
               <View style={styles.headerItem}>
-                <Text style={styles.Text}>All billing Details</Text>
+                <Text style={[styles.Text,{color:'#fff'}]}>All billing Details</Text>
                 <View style={styles.circle}></View>
               </View>
 
               <View style={styles.monthYearContainer}>
                 <View style={styles.month}>
-                  <Text style={styles.milk}>Month</Text>
-                <View style={{backgroundColor:"#fff",borderRadius:hp('0.8%')}}> 
-                  <Picker
+                  <Text style={[styles.milk,{color:'#fff'}]}>Month</Text>
+                <View style={{backgroundColor:"#fff",height:hp('5%'),borderRadius:hp('0.8%')}}> 
+                <Picker
               note
               mode="dropdown"
-              style={{ width: 120,borderRadius:hp('0.8%') }}
+              style={{ width: wp('33%') ,borderRadius:hp('0.8%'),height:hp('5%')}}
               selectedValue={'test'}
-              onValueChange={this.onValueChange}
+              // onValueChange={this.onValueChange}
             >
-              <Picker.Item label="Wallet" value="key0" />
-              <Picker.Item label="ATM Card" value="key1" />
-              <Picker.Item label="Debit Card" value="key2" />
-              <Picker.Item label="Credit Card" value="key3" />
-              <Picker.Item label="Net Banking" value="key4" />
+              {
+                month.map((element)=>{
+                  return(
+                    <Picker.Item label={element.label} value={element.value} />
+                  )
+                })
+            }
             </Picker>
             </View>
                 </View>
 
                 <View style={styles.year}>
-                  <Text style={styles.milk}>Year</Text>
-                  <View style={{backgroundColor:"#fff",borderRadius:hp('0.8%')}}> 
+                  <Text style={[styles.milk,{color:'#fff'}]}>Year</Text>
+                  <View style={{backgroundColor:"#fff",borderRadius:hp('0.8%'),height:hp('5%')}}> 
                   <Picker
               note
               mode="dropdown"
-              style={{ width: 120 ,borderRadius:hp('0.8%')}}
+              style={{ width: wp('33%') ,borderRadius:hp('0.8%'), height:hp("5%")}}
               selectedValue={'test'}
               // onValueChange={this.onValueChange}
             >
@@ -93,7 +90,7 @@ const App = () => {
 
               <View style={styles.values}>
                 <Text style={styles.valueText}>$ 13000 </Text>
-                <Text style={styles.Text}> some text here </Text>
+                <Text style={[styles.Text,{color:'#fff'}]}> Total </Text>
               </View>
 
               <View style={styles.headerBottom}>
@@ -118,175 +115,28 @@ const App = () => {
               </View>
             </View>
 
-            {/* <View style={styles.sContainer}>
-              <View style={[styles.sCon, {backgroundColor: 'orange'}]}>
-                <Text style={styles.Text}>Icon</Text>
-                <Text style={styles.Text}>something here</Text>
-              </View>
-              <View>
-                <View style={styles.sCon}>
-                  <Text style={styles.Text}>20,000</Text>
-                  <Text style={styles.Text}>something here</Text>
-                </View>
-              </View>
-            </View> */}
-            {/* <Text style={[styles.Text, {paddingLeft: 30}]}>New Customers</Text> */}
-
-            {/* <View style={styles.cardContainer}>
-              <View style={styles.card}>
-                <View style={[styles.circle, {backgroundColor: 'gray'}]}></View>
-                <View style={styles.custFirst}>
-                  <Text style={styles.Text}>customer name</Text>
-                  <Text style={styles.Text}>customer mobile</Text>
-                  <Text style={styles.Text}>customer location</Text>
-                </View>
-
-                <View style={styles.custLast}>
-                  <Text style={styles.Text}>somthing</Text>
-                  <Text style={styles.Text}>somthing</Text>
-                  <Text style={styles.Text}>customer </Text>
-                </View>
-              </View>
-            </View> */}
-
-<View style={{padding:hp('1%')}}> 
-            <Card style={styles.cardContainer}>
-            {/* <CardItem> */}
-              {/* <Body> */}
-              <View style={styles.card}>
-                <View style={[styles.circle, {backgroundColor: 'gray'}]}></View>
-                <View style={styles.custFirst}>
-                  <Text style={styles.Text}>customer name</Text>
-                  <Text style={styles.Text}>customer location</Text>
-                </View>
-
-                <View style={styles.custLast}>
-                  <Text style={styles.Text}> 2000</Text>
-                  <Text style={styles.Text}>mph </Text>
-                </View>
-              </View>
-              {/* </Body> */}
-            {/* </CardItem> */}
-          </Card>
-{/* </View> */}
-
-{/* <View style={{margin:hp('1%')}}>  */}
-            <Card style={styles.cardContainer}>
-            {/* <CardItem> */}
-              {/* <Body> */}
-              <View style={styles.card}>
-                <View style={[styles.circle, {backgroundColor: 'gray'}]}></View>
-                <View style={styles.custFirst}>
-                  <Text style={styles.Text}>customer name</Text>
-                  <Text style={styles.Text}>customer location</Text>
-                </View>
-
-                <View style={[styles.custLast,{backgroundColor:"lightgray"}]}>
-                  <Text style={styles.Text}> 2000</Text>
-                  <Text style={styles.Text}>mph </Text>
-                </View>
-              </View>
-              {/* </Body> */}
-            {/* </CardItem> */}
-          </Card>
-{/* </View> */}
-
-{/* <View style={{margin:hp('1%')}}>  */}
-            <Card style={styles.cardContainer}>
-            {/* <CardItem> */}
-              {/* <Body> */}
-              <View style={styles.card}>
-                <View style={[styles.circle, {backgroundColor: 'gray'}]}></View>
-                <View style={styles.custFirst}>
-                  <Text style={styles.Text}>customer name</Text>
-                  <Text style={styles.Text}>customer location</Text>
-                </View>
-
-                <View style={[styles.custLast,{backgroundColor:"lightgray"}]}>
-                  <Text style={styles.Text}> 2000</Text>
-                  <Text style={styles.Text}>mph </Text>
-                </View>
-              </View>
-              {/* </Body> */}
-            {/* </CardItem> */}
-          </Card>
-{/* </View> */}
-
-
-{/* <View style={{margin:hp('1%')}}>  */}
-            <Card style={styles.cardContainer}>
-            {/* <CardItem> */}
-              {/* <Body> */}
-              <View style={styles.card}>
-                <View style={[styles.circle, {backgroundColor: 'gray'}]}></View>
-                <View style={styles.custFirst}>
-                  <Text style={styles.Text}>customer name</Text>
-                  <Text style={styles.Text}>customer location</Text>
-                </View>
-
-                <View style={styles.custLast}>
-                  <Text style={styles.Text}> 2000</Text>
-                  <Text style={styles.Text}>mph </Text>
-                </View>
-              </View>
-              {/* </Body> */}
-            {/* </CardItem> */}
-          </Card>
-{/* </View> */}
-
-{/* <View style={{margin:hp('1%')}}>  */}
-            <Card style={styles.cardContainer}>
-            {/* <CardItem> */}
-              {/* <Body> */}
-              <View style={styles.card}>
-                <View style={[styles.circle, {backgroundColor: 'gray'}]}></View>
-                <View style={styles.custFirst}>
-                  <Text style={styles.Text}>customer name</Text>
-                  <Text style={styles.Text}>customer location</Text>
-                </View>
-
-                <View style={[styles.custLast,{backgroundColor:"lightgray"}]}>
-                  <Text style={styles.Text}> 2000</Text>
-                  <Text style={styles.Text}>mph </Text>
-                </View>
-              </View>
-              {/* </Body> */}
-            {/* </CardItem> */}
-          </Card>
+            <View style={{padding:hp('1%')}}> 
+            {
+              data.map(()=>{
+                return(
+                  <Card style={styles.cardContainer}>
+                  <View style={styles.card}>
+                    <View style={[styles.circle, {backgroundColor: 'gray'}]}></View>
+                    <View style={styles.custFirst}>
+                      <Text style={styles.Text}>Ravi Yadav</Text>
+                      <Text style={styles.Text}>9823504120</Text>
+                    </View>
+    
+                    <View style={styles.custLast}>
+                      <Text style={styles.Text}> 2000</Text>
+                      <Text style={styles.Text}>mph </Text>
+                    </View>
+                  </View>
+              </Card>
+                )
+              })
+            }
 </View>
-            {/* <View style={[styles.cardContainer, {paddingTop: 0}]}>
-              <View style={styles.card}>
-                <View style={[styles.circle, {backgroundColor: 'gray'}]}></View>
-                <View style={styles.custFirst}>
-                  <Text style={styles.Text}>customer name</Text>
-                  <Text style={styles.Text}>customer mobile</Text>
-                  <Text style={styles.Text}>customer location</Text>
-                </View>
-
-                <View style={styles.custLast}>
-                  <Text style={styles.Text}>somthing</Text>
-                  <Text style={styles.Text}>somthing</Text>
-                  <Text style={styles.Text}>customer </Text>
-                </View>
-              </View>
-            </View> */}
-
-            {/* <View style={[styles.cardContainer, {paddingTop: 0}]}>
-              <View style={styles.card}>
-                <View style={[styles.circle, {backgroundColor: 'gray'}]}></View>
-                <View style={styles.custFirst}>
-                  <Text style={styles.Text}>customer name</Text>
-                  <Text style={styles.Text}>customer mobile</Text>
-                  <Text style={styles.Text}>customer location</Text>
-                </View>
-
-                <View style={styles.custLast}>
-                  <Text style={styles.Text}>somthing</Text>
-                  <Text style={styles.Text}>somthing</Text>
-                  <Text style={styles.Text}>customer </Text>
-                </View>
-              </View>
-            </View> */}
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -308,13 +158,14 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.lighter,
   },
   header: {
-    backgroundColor: 'lightgreen',
+    backgroundColor: 'skyblue',
     padding: hp('2%'),
     height: hp('45%'),
     borderBottomLeftRadius: hp('4%'),
     borderBottomRightRadius: hp('4%'),
   },
   headerItem: {
+    borderBottomColor:'grey',
     borderBottomWidth: hp('0.1%'),
     padding: hp('1%'),
     flexDirection: 'row',
@@ -344,10 +195,10 @@ const styles = StyleSheet.create({
   },
   values: {
     alignItems: 'center',
-    padding: hp('2%'),
+    padding: hp('1%'),
   },
   valueText: {
-    fontSize: hp('5%'),
+    fontSize: hp('5%'),color:'#fff'
   },
   headerBottomContainer: {
     backgroundColor: '#fff',
@@ -384,7 +235,7 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     padding: hp('1%'),
-   
+    borderRadius:10
   },
   card: {
     flexDirection: 'row',
@@ -392,7 +243,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   custLast: {
-    backgroundColor: 'lightgreen',
+    backgroundColor: 'skyblue',
     padding: hp('2%'),
     borderTopLeftRadius: hp('9%'),
     borderBottomEndRadius: hp('1%'),
@@ -401,7 +252,7 @@ const styles = StyleSheet.create({
     paddingHorizontal:wp('12%')
   },
   Text: {
-    fontSize: hp('2%'),
+    fontSize: hp('2%')
   },
   custFirst: {
     padding: hp('2%'),
