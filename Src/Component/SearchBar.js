@@ -7,27 +7,27 @@ import Feater from 'react-native-vector-icons/Feather';
 var items = [
   {
     id: 1,
-    name: 'JavaScript',
+    name: 'Pravin',
     mobile:'9637389852'
   },
   {
     id: 2,
-    name: 'Java',
+    name: 'Mangesh',
     mobile:'9637389852'
   },
   {
     id: 3,
-    name: 'Ruby',    
+    name: 'Satish',    
     mobile:'9637389852'
   },
   {
     id: 4,
-    name: 'React Native',   
+    name: 'Shantanu',   
     mobile:'9637389852'
   },
   {
     id: 5,
-    name: 'PHP',    
+    name: 'Name',    
     mobile:'9637389852'
   },
   {
@@ -66,7 +66,8 @@ export default class SearchBar extends React.Component {
   render() {
   return (
     //   <View style={{borderWidth:1,borderColor:'grey',flexDirection:'row'}}>
-        <View style={{flex:1}}>  
+        <View style={{flex:1}}>
+          <View>  
         <SearchableDropdown
             onItemSelect={(item) => {
                 alert(JSON.stringify(item))
@@ -77,15 +78,23 @@ export default class SearchBar extends React.Component {
             containerStyle={{ padding: 5 }}
             itemStyle={{
               padding: 10,
-              marginTop: 2,
+              // marginTop: 2,
               backgroundColor: '#fff',
-            //   borderBottomColor: '#bbb',
-            //   borderBottomWidth: 1,
-              borderRadius: 5,
-            //   position:'absolute'
+              borderBottomColor: '#bbb',
+              borderBottomWidth: 1,
+              // borderRadius: 5
+              // position:'absolute'
             }}
             itemTextStyle={{ color: '#222' }}
-            itemsContainerStyle={{ maxHeight: 140 }}
+            itemsContainerStyle={{ 
+              maxHeight: 140,
+              position:"absolute",
+              width:"100%",
+              top:60,
+              marginHorizontal:7,
+              marginLeft:7,     
+              zIndex: 10,//Forcing it to front
+            }}
             items={items}
             // defaultIndex={1}
             resetValue={false}
@@ -108,9 +117,12 @@ export default class SearchBar extends React.Component {
               }
             }
         />
+        </View>
+        <View>
         <Text>
             Some Text
         </Text>
+        </View>
         </View>
   );
   }
