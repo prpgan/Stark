@@ -115,8 +115,8 @@ import Searchbar from '../Component/SearchBar';
 import TermsAndPrivacy from '../Screens/Stark/TermsAndPrivacy';
 import Filter from "../Screens/Stark/Filter";
 import DatePickerExample from '../Component/DatePickerExample';
-
-
+import Animation from '../Screens/Animation';
+import ContactExample from '../Screens/Stark/ContactsExample';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -195,6 +195,8 @@ function Routes(){
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Contact" component={Searchbar} options={{headerShown:false}} />
+        <Stack.Screen name="Animation" component={Animation} options={{headerShown:false}} />
         <Stack.Screen name="Login" component={Login} options={{headerShown:false}} />
       <Stack.Screen name="SignUpForStark" component={SignUpForStark} options={{headerShown:false}} />
       <Stack.Screen name="DatePicker" component={DatePickerExample} options={{headerShown:false}} />
